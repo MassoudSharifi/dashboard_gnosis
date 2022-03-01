@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "next build && next export",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build",
+    "test": "jest --watchAll",
+    "next-build": "next build",
+    "start_heroku": "NOOD_ENV=production node server.js"
   },
   "dependencies": {
     "next": "12.1.0",
